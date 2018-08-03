@@ -41,16 +41,13 @@ Probability of a claim is given by the sum of probabilities of worlds where the 
 #### Describe observed, hidden, and query random variables.
 *P(Y | E=e) = &alpha; P(Y, E=e) = &alpha;&sum;<sub>h</sub>P(Y,E=e,H=h)*.
 
-*Y* are query random variables.
-
-*E* are observed random variables.
-
-*H* are hidden random variables.
+*Y* are query random variables.  
+*E* are observed random variables.  
+*H* are hidden random variables.  
 
 #### What is a conditional probability?
-Conditional probability asks about probability of an event when we already have some information.
-
-*P(A | B) = P(A &and; B)/P(B)*
+Conditional probability asks about probability of an event when we already have some information.  
+*P(A | B) = P(A &and; B)/P(B)*  
 
 #### Describe product and chain rules.
 Product rule: *P(A &and; B) = P(A | B) P(B)*
@@ -60,9 +57,8 @@ Chain rule: *P(A, B, C, D) = P(A | B, C, D) P(B, C, D) = P(A | B, C, D) P(B | C,
 #### How is normalization exploited when computing conditional probabilities?
 When computing conditional probabilities e.g. *P(A | B), P(&not;A | B)*, we do not need to know *P(B)*, since the sub of *P(A | B) + P(&not;A | B)* equals to *1*.
 
-When computing *P(A | B)* we do not need to evaluate *P(B)* (which might be complicated) but can use *normalization constant &alpha;*:
-
-*P(A | B) = &alpha; P(A &and; B) = &alpha; <P(A &and; B); P(&not;A &and; B)>\[0]*
+When computing *P(A | B)* we do not need to evaluate *P(B)* (which might be complicated) but can use *normalization constant &alpha;*:  
+*P(A | B) = &alpha; P(A &and; B) = &alpha; <P(A &and; B); P(&not;A &and; B)>\[0]*  
 
 ***P(cavity | toothache) = &alpha; P(cavity &and; toothache) = &alpha; <0.12; 0.08> = <0.6; 0.4> ... &alpha; = 5***
 
@@ -74,8 +70,8 @@ Bayes’ rule: *P(A | B) = P(B | A) P(A) / P(B)*
 With normalization: *P(A | B) = &alpha; P(B | A) P(A)*
 
 #### What is a naïve Bayes model? In particular, why is it called naïve?
-If probabilities of all random variables are independent, we can write:
-  *P(C, E<sub>1</sub>, ..., E<sub>n</sub>) = P(C) &prod;<sub>i</sub>P(E<sub>i</sub> | C)*
+If probabilities of all random variables are independent, we can write:  
+*P(C, E<sub>1</sub>, ..., E<sub>n</sub>) = P(C) &prod;<sub>i</sub>P(E<sub>i</sub> | C)*  
 
 It is called naïve Bayes model since it is often used even when the probabilities are not indepenedent.
 
