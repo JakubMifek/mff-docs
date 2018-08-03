@@ -67,8 +67,17 @@ When computing *P(A | B)* we do not need to evaluate *P(B)* (which might be comp
 ***P(cavity | toothache) = &alpha; P(cavity &and; toothache) = &alpha; <0.12; 0.08> = <0.6; 0.4> ... &alpha; = 5***
 
 #### Describe Bayes’ rule.
+Recall *P(A &and; B) = P(A | B) P(B) = P(B | A) P(A)*.
+
+Bayes’ rule: *P(A | B) = P(B | A) P(A) / P(B)*
+
+With normalization: *P(A | B) = &alpha; P(B | A) P(A)*
 
 #### What is a naïve Bayes model? In particular, why is it called naïve?
+If probabilities of all random variables are independent, we can write:
+  *P(C, E<sub>1</sub>, ..., E<sub>n</sub>) = P(C) &prod;<sub>i</sub>P(E<sub>i</sub> | C)*
+
+It is called naïve Bayes model since it is often used even when the probabilities are not indepenedent.
 
 #### How is the Bayes’ rule exploited when representing the full joint probability distribution?
 
