@@ -2,6 +2,7 @@
 ### Quiz &num;01 (uncertainty and probability theory)
 ___
 #### Can a purely logical agent work with uncertanity? If yes, how?
+Yes. It represents all possible world states for the agent no matter how unlikely.
 
 #### What is a sample space? Describe its properties.
 Sample space is a set of elementary phenomena. It contains all possible states which may occur. Each elementary phenomenon has assigned its probability *P(&#969;)*. *&sum;P(&#969;) = &#937;*
@@ -76,5 +77,10 @@ If probabilities of all random variables are independent, we can write:
 It is called naïve Bayes model since it is often used even when the probabilities are not indepenedent.
 
 #### How is the Bayes’ rule exploited when representing the full joint probability distribution?
+***???***
 
 #### What is the difference between causal and diagnostic direction?
+Causal dirrection is the probability of effect if we know the cause.  
+Diagnostic dirrection is the opposite. We know effects and want to know what most likely causes the effects.  
+
+*P(E | C)* vs. *P(C | E)*
