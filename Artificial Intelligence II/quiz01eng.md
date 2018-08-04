@@ -61,7 +61,7 @@ When computing conditional probabilities e.g. *P(A | B), P(&not;A | B)*, we do n
 When computing *P(A | B)* we do not need to evaluate *P(B)* (which might be complicated) but can use *normalization constant &alpha;*:  
 *P(A | B) = &alpha; P(A &and; B) = &alpha; <P(A &and; B); P(&not;A &and; B)>\[0]*  
 
-***P(cavity | toothache) = &alpha; P(cavity &and; toothache) = &alpha; <0.12; 0.08> = <0.6; 0.4> ... &alpha; = 5***
+*P(cavity | toothache) = &alpha; P(cavity &and; toothache) = &alpha; <0.12; 0.08> = <0.6; 0.4> ... &alpha; = 5*
 
 #### Describe Bayes’ rule.
 Recall *P(A &and; B) = P(A | B) P(B) = P(B | A) P(A)*.
