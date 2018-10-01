@@ -1,4 +1,4 @@
-# Quiz #02: local search
+# Quiz #02: Local Search
 <sub>http://ktiml.mff.cuni.cz/~bartak/podminky/lectures/CSP-lecture02eng.pdf</sub>
 
 ### What is the problem of generate - and - test method?
