@@ -1,3 +1,5 @@
+% http://ktiml.mff.cuni.cz/~bartak/podminky/lectures/CSP-seminar01eng.pdf
+
 node(a).
 node(b).
 node(c).
