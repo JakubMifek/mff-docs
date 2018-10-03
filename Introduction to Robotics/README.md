@@ -1,5 +1,5 @@
 # Introduction to Robotics
-Taught by RNDr. David Obdržálek, Ph.D.
+Taught by [RNDr. David Obdržálek, Ph.D.](http://ktiml.mff.cuni.cz/~obdrzalek/vyuka/)
 
 ## Tutorials
  - Tutorials are mandatory as well as homeworks and semestral project.
