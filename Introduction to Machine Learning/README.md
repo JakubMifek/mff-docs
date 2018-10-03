@@ -5,8 +5,8 @@ Taught by [RNDr. Martin Holub, Ph.D.](https://ufal.mff.cuni.cz/martin-holub) and
 ## Lab sessions
  - We work with R (not taught)
  - Supportive course NPFL081 (Practical Fundamentals of Probability and Statistics) - for lame students
- - Obligatory homeworks (2 easy and 1 semestral project)
- - Written tests
+ - Obligatory homeworks (2 easy and 1 semestral project) - 20% grade
+ - Written tests (2 easy and 1 hard) - 50% grade
 
 ## Oral examination
 Scores for 30% of total grade
