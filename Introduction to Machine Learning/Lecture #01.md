@@ -1,4 +1,5 @@
 # Intro
+[Presentation]()
 
 Can be used for example for **SPAM recognition**.
 Text is classified into two categories (binary classification) - *SPAM* or *not SPAM*
@@ -21,3 +22,15 @@ We try to assign the correct sense of a word in a sentence. E.g.: word *line* ca
  - TEXT
 
 And we ignored verb usage of word *line*.
+
+## Supervised machine-learning
+Computer learns "essential knowledge" from a (large) set of exmaples.
+Then we extract *feature vector* from real world objects and using a *prediction function* we predict true value.
+
+## Loss function
+Loss function measures the cost of predicting *ÿ* when the true value is *y*.
+
+| Loss function |  Formula  |
+|      ---:     |   :---    |
+| Squared loss  | (ÿ - y)^2 |
+| Zero-one loss | 1(ÿ /= y) |
