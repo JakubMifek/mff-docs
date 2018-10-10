@@ -1,5 +1,5 @@
 # Intro
-[Presentation]()
+[Presentation](https://ufal.mff.cuni.cz/~holub/2018/docs/lec.Formal-Intro-to-ML.2018-10-03.posted.pdf)
 
 Can be used for example for **SPAM recognition**.
 Text is classified into two categories (binary classification) - *SPAM* or *not SPAM*
