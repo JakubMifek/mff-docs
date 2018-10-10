@@ -5,8 +5,8 @@ Informace rozděleny do třech částí:
  - Firmy/Business (letní semestr)
  
     Q</br>
-   / \\
-  /   \\
+   / \\</br>
+  /   \\</br>
  $_____t
  
  Projekt je bod v daném trojúhelníku peněz, čase a Q? (myslím, že lidé, kolegové).
@@ -110,7 +110,7 @@ Mentální modely mají nevýhody:
 Walt Disney přišel s principem snílků, realizátorů a kritiků, kteří komunikovali, dokud nenašli správné řešení.
 
 V Agile je klíčová otázka **Proč?**. Nejdříve musíme pochopit zadání, než začneme tvořit.
-Poté až přichází otázky Co?, Kdy? a ***Jak?***.
+Poté až přichází otázky Co?, Kdy? a **Jak?**.
 V Jak se často zajme projektový manažer, který si vytvoří svůj vlastní mentální model a nepodrobí ho kritice.
 
 #### CLD
