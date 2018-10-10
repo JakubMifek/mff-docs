@@ -13,3 +13,27 @@ There are several means we can use:
    - visualize contigency tables
  - Box plots
    - box-and-whiskers plots are good for statistical analysis of mean, median, variance, etc.
+ - Scatter plots
+   - display values of two numerical features
+
+### Analyzing distribution of values:
+ - histogram
+ - quantile-quantile plot
+ - distribution test
+ 
+### Clustering
+ - homogenicity
+ - separation
+
+Clustering similarity:
+ - Cosine similarity
+ - As a distance
+   - Euclidian
+   - Manhattan
+
+Each cluster has its centroid.
+
+Clustering algorithms:
+ - Within-cluster variation
+ - Total within-cluster variation
+ - k-means
