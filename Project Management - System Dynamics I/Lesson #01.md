@@ -4,10 +4,10 @@ Informace rozděleny do třech částí:
  - Projekty
  - Firmy/Business (letní semestr)
  
-    Q</br>
-   / \\</br>
-  /   \\</br>
- $_____t
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q</br>
+&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;\\</br>
+&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\</br>
+$\_\_\_\_\_\_\_t
  
  Projekt je bod v daném trojúhelníku peněz, čase a Q? (myslím, že lidé, kolegové).
  
