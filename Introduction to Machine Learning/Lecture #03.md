@@ -39,3 +39,7 @@ V listech se nachází cílové hodnoty.
 | Y je kategorický výstup | Y je numerický výstup |
 
 Rozhodovací stromy pracují s atributy a jejich výsledná hodnota je *odhad*.
+
+<p align="center">
+  <img src="https://github.com/JakubMifek/mff-docs/blob/master/Introduction%20to%20Machine%20Learning/images/predikce.png
+</p> 
