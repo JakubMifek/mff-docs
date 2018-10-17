@@ -37,3 +37,5 @@ V listech se nachází cílové hodnoty.
 | Klasifikační stromy | Regresní stromy |
 | :---: | :---: |
 | Y je kategorický výstup | Y je numerický výstup |
+
+Rozhodovací stromy pracují s atributy a jejich výsledná hodnota je *odhad*.
