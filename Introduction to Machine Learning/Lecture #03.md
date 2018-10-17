@@ -10,6 +10,10 @@ Učíme se pomocí:
  - trénovacích dat
  - testovacích dat
  
- Data jsou množiny příkladů `<x_i, y_i>, i=1..n`, kde `x_i` je vektor příznaků a `y_i` je jednou z cílových množin diskrétních hodnot.
- 
- 
+Data jsou množiny příkladů `<x_i, y_i>, i=1..n`, kde `x_i` je vektor příznaků a `y_i` je jednou z cílových množin diskrétních hodnot.
+
+# Entropy
+See [slides](https://ufal.mff.cuni.cz/~holub/2018/docs/lec.Entropy.2018-10-17.pdf).
+Entropie je definovaná jako střední hodnota množství informace které se dozvídám v závislosti na pravděpodobnosti jevu.
+`Sum(Pr(value) . log_2 1/Pr(value)) = - sum(Pr(value) . log_2 Pr(value))`
+
