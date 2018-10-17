@@ -54,6 +54,4 @@ Podmnožiny dělíme, dokud je pravděpodobnost správné odpovědi pod určitou
  1. Jak vymyslet optimální podmínku štěpení u každého uzlu?
  2. Kdy se má štěpení zastavit?
  
-<aside class="notice">
-  Přehnané štěpení by vedlo k přetrénování (over-fitting).
-</aside>
+Přehnané štěpení by vedlo k přetrénování (*over-fitting*).
