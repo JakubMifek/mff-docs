@@ -1,4 +1,7 @@
 # Klasifikační úloha
+
+[[https://github.com/JakubMifek/mff-docs/blob/master/Introduction%20to%20Machine%20Learning/images/klasifikacni_uloha.png]]
+
 Zobrazení objektu klasifikace na cílovou množinu diskrétních hodnot
 Objekt klasifikace je reprezentován pomocí vektoru příznaků `<A_1, A_2, ... A_n>`
 Učíme se pomocí:
