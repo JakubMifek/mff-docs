@@ -20,3 +20,9 @@ Entropie (`H`) je definovaná jako střední hodnota množství informace které
 <p align="center">
   <img src="https://github.com/JakubMifek/mff-docs/blob/master/Introduction%20to%20Machine%20Learning/images/rozdeleni.png">
 </p>
+
+<p align="center">
+  <img src="https://github.com/JakubMifek/mff-docs/blob/master/Introduction%20to%20Machine%20Learning/images/slozena_entropie.png">
+</p>
+
+# Rozhodovací stromy
