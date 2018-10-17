@@ -41,5 +41,19 @@ V listech se nachází cílové hodnoty.
 Rozhodovací stromy pracují s atributy a jejich výsledná hodnota je *odhad*.
 
 <p align="center">
-  <img src="https://github.com/JakubMifek/mff-docs/blob/master/Introduction%20to%20Machine%20Learning/images/predikce.png
-</p> 
+  <img src="https://github.com/JakubMifek/mff-docs/blob/master/Introduction%20to%20Machine%20Learning/images/predikce.png">
+</p>
+
+<p align="center">
+  <img src="https://github.com/JakubMifek/mff-docs/blob/master/Introduction%20to%20Machine%20Learning/images/rozhodovaci_strom_predikce.png">
+</p>
+
+Podmnožiny dělíme, dokud je pravděpodobnost správné odpovědi pod určitou hladinou.
+
+## Trénování rozhodovacího stromu
+ 1. Jak vymyslet optimální podmínku štěpení u každého uzlu?
+ 2. Kdy se má štěpení zastavit?
+ 
+<aside class="notice">
+  Přehnané štěpení by vedlo k přetrénování (over-fitting).
+</aside>
