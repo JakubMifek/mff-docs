@@ -121,6 +121,9 @@ Peníze v bance jsou zásobník (hladina). Do zásobníku teče úrok (tok). A z
 ***[vensim.com](http://vensim.com/) - nástroj pro simulace projektů.***
 
 ### Dú:
-Nainstalovat a prozkoumat.
-Představit nějaký náš projekt. Připravit si promítání. Povídání o problémech, atd. 20 minut max.
-Jak je zadaný, jak to jde, jaký jsou problémy.
+ - Nainstalovat a prozkoumat.
+ - Představit nějaký náš projekt.
+   - Připravit si promítání.
+   - Povídání o problémech, atd.
+   - 20 minut max.
+   - Jak je zadaný, jak to jde, jaký jsou problémy.
