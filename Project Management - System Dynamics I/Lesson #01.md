@@ -98,7 +98,7 @@ Od projektových manažerů se požaduje:
  - mindfulness - musíme sledovat projekt zvrchu, ale nesmíme ignorovat detaily (vidět les a stromy)
    - pozornost, bdělost (tady a teď)
    - takto si všimneme vzorců chování, které můžeme ovlivňovat, využívat
-   - vzorce chování ovlivňují strukturu projektu (nový lidé, lepší morálka, ...)
+   - vzorce chování ovlivňují strukturu projektu (noví lidé, lepší morálka, ...)
    - většina našich rozhodnutí je intuitivní
    - manažer musí dělat racionální rozhodnutí - mít systémové myšlení
    - musí si tedy uvědomovat mentální modely a přepínat je
