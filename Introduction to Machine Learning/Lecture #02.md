@@ -1,7 +1,7 @@
 # Machine Learning - part 1
 In this lecture we go through data analysis.
 
-[Presentation]()
+[Presentation](https://ufal.mff.cuni.cz/~hladka/2018/docs/lec.Data-Analysis-Clustering.2018-10-10_1.pdf)
 
 ## Means of basic statistical analysis
 There are several means we can use:
