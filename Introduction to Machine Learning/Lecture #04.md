@@ -8,6 +8,7 @@ We will be working with data about cars:
 | --:      | :--         |
 | mpg | miles per galon |
 | origin | country of the manufacturer |
+
 << Missing information >>
 
 ## Linear regression
@@ -48,3 +49,13 @@ We search for minimum of loss function of a line that goes through the origin:
  - We are seeking the solution to the minimum of a function f(x). Given some initial value x_0 we can change its value in many directions.
  - What is the best direction to minimize *f*? We tkae the **gradient** of *f*
  - Intuitively, the gradient of *f* at any point tels which direction is the steepest from that point and how steep it is. So we change **x** in the opposite direction to lower the function value.
+ 
+<< Missing information >>
+
+### Hyperplane
+Hyperplane is a linear decision boundary of the form *f(x) = Theta^T x*.
+It separates the plane into two planes.
+
+**Separating hyperplane** separates data perfectly.
+
+**Linear clasifiers** clasify examples using hyperplane.
