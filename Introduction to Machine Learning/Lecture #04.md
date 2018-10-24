@@ -59,3 +59,12 @@ It separates the plane into two planes.
 **Separating hyperplane** separates data perfectly.
 
 **Linear clasifiers** clasify examples using hyperplane.
+
+## Logistic regression
+Is a classification algorithm.
+
+Its target hypothesis *f* for a binary classification has a form of **sigmoid function**.
+
+**Loss function** *L(Theta) = -sum_i=1^n y_i log(P(y_i|x_i; Theta)) + (1-y_i) log(1 - P(y_i | x_i; Theta))*
+
+**Optimization problem** *Theta' = argmin_Theta L(Theta)*
