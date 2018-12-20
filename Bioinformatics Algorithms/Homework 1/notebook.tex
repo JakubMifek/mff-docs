@@ -1,0 +1,634 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{NTIN084\_-\_HW1\_-\_Jakub\_Mifek}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \section{Úloha 1 - určovanie príbuznosti pomocou
+kompresie}\label{uxfaloha-1---urux10dovanie-pruxedbuznosti-pomocou-kompresie}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}1}]:} \PY{k+kn}{import} \PY{n+nn}{gzip}
+        
+        \PY{k}{def} \PY{n+nf}{loadfasta}\PY{p}{(}\PY{n}{filename}\PY{p}{,}\PY{n}{verbose}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{:}
+            \PY{l+s+sd}{\PYZdq{}\PYZdq{}\PYZdq{} Parses a classically formatted and possibly }
+        \PY{l+s+sd}{        compressed FASTA file into a dictionary where the key}
+        \PY{l+s+sd}{        for a sequence is the first part of its header without }
+        \PY{l+s+sd}{        any white space; if verbose is nonzero then the identifiers }
+        \PY{l+s+sd}{        together with lengths of the read sequences are printed\PYZdq{}\PYZdq{}\PYZdq{}}
+            \PY{k}{if} \PY{p}{(}\PY{n}{filename}\PY{o}{.}\PY{n}{endswith}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{.gz}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+                \PY{n}{fp} \PY{o}{=} \PY{n}{gzip}\PY{o}{.}\PY{n}{open}\PY{p}{(}\PY{n}{filename}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{rt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+            \PY{k}{else}\PY{p}{:}
+                \PY{n}{fp} \PY{o}{=} \PY{n+nb}{open}\PY{p}{(}\PY{n}{filename}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{r}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+            \PY{c+c1}{\PYZsh{} split at headers}
+            \PY{c+c1}{\PYZsh{} data = fp.read().split(\PYZsq{}\PYZgt{}\PYZsq{})}
+            \PY{n}{data} \PY{o}{=} \PY{n}{fp}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}
+            \PY{n}{data} \PY{o}{=} \PY{n}{data}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZgt{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+            \PY{n}{fp}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}
+            \PY{c+c1}{\PYZsh{} ignore whatever appears before the 1st header}
+            \PY{n}{data}\PY{o}{.}\PY{n}{pop}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}     
+            \PY{c+c1}{\PYZsh{} prepare the dictionary}
+            \PY{n}{D} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+            \PY{k}{for} \PY{n}{sequence} \PY{o+ow}{in} \PY{n}{data}\PY{p}{:}
+                \PY{n}{lines} \PY{o}{=} \PY{n}{sequence}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+                \PY{n}{header} \PY{o}{=} \PY{n}{lines}\PY{o}{.}\PY{n}{pop}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{p}{)}
+                \PY{n}{key} \PY{o}{=} \PY{n}{header}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+                \PY{n}{D}\PY{p}{[}\PY{n}{key}\PY{p}{]} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{lines}\PY{p}{)}
+                \PY{k}{if} \PY{n}{verbose}\PY{p}{:}
+                    \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Sequence }\PY{l+s+si}{\PYZpc{}s}\PY{l+s+s2}{ of length }\PY{l+s+si}{\PYZpc{}d}\PY{l+s+s2}{ read}\PY{l+s+s2}{\PYZdq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{key}\PY{p}{,}\PY{n+nb}{len}\PY{p}{(}\PY{n}{D}\PY{p}{[}\PY{n}{key}\PY{p}{]}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+            \PY{k}{return} \PY{n}{D}
+        
+        \PY{n}{seq} \PY{o}{=} \PY{n}{loadfasta}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Seq.fasta}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    First we read \texttt{Seq.fasta} file. We do that using the
+\texttt{loadfasta} method from seminar.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{k+kn}{from} \PY{n+nn}{gzip} \PY{k}{import} \PY{n}{compress} \PY{k}{as} \PY{n}{gzip\PYZus{}compress}
+        \PY{k+kn}{from} \PY{n+nn}{os}\PY{n+nn}{.}\PY{n+nn}{path} \PY{k}{import} \PY{n}{getsize}\PY{p}{,} \PY{n}{splitext}
+        \PY{k+kn}{from} \PY{n+nn}{subprocess} \PY{k}{import} \PY{n}{run}
+        
+        \PY{k}{def} \PY{n+nf}{gencompress\PYZus{}size}\PY{p}{(}\PY{n}{genom}\PY{p}{,} \PY{n}{reference}\PY{o}{=}\PY{k+kc}{None}\PY{p}{)}\PY{p}{:}
+            \PY{n}{gename} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{gene}\PY{l+s+s2}{\PYZdq{}}
+            \PY{n}{genomfile} \PY{o}{=} \PY{n}{gename}\PY{o}{+}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{.tmp}\PY{l+s+s1}{\PYZsq{}}
+            
+            \PY{k}{with} \PY{n+nb}{open}\PY{p}{(}\PY{n}{genomfile}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{w+}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PY{k}{as} \PY{n}{file}\PY{p}{:}
+                \PY{n}{file}\PY{o}{.}\PY{n}{write}\PY{p}{(}\PY{n}{genom}\PY{p}{)}
+            
+            \PY{k}{if} \PY{o+ow}{not} \PY{n}{reference} \PY{o}{==} \PY{k+kc}{None}\PY{p}{:}
+                \PY{n}{refname} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ref}\PY{l+s+s2}{\PYZdq{}}
+                \PY{n}{refile} \PY{o}{=} \PY{n}{refname}\PY{o}{+}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{.tmp}\PY{l+s+s1}{\PYZsq{}}
+            
+                \PY{k}{with} \PY{n+nb}{open}\PY{p}{(}\PY{n}{refile}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{w+}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PY{k}{as} \PY{n}{file}\PY{p}{:}
+                    \PY{n}{file}\PY{o}{.}\PY{n}{write}\PY{p}{(}\PY{n}{reference}\PY{p}{)}
+                    
+                \PY{n}{run}\PY{p}{(}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{GenCompress.exe}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{genomfile}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZhy{}c}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{refile}\PY{p}{]}\PY{p}{)}
+            \PY{k}{else}\PY{p}{:}
+                \PY{n}{run}\PY{p}{(}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{GenCompress.exe}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{genomfile}\PY{p}{]}\PY{p}{)}
+             
+            \PY{k}{return} \PY{n}{getsize}\PY{p}{(}\PY{n}{gename}\PY{o}{+}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{.GEN}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+        
+        \PY{k}{def} \PY{n+nf}{gzipcompress\PYZus{}size}\PY{p}{(}\PY{n}{genom}\PY{p}{,} \PY{n}{reference}\PY{o}{=}\PY{k+kc}{None}\PY{p}{)}\PY{p}{:}
+            \PY{n}{size} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{gzip\PYZus{}compress}\PY{p}{(}\PY{n+nb}{bytes}\PY{p}{(}\PY{n}{genom}\PY{p}{,} \PY{n}{encoding}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{utf8}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+            
+            \PY{k}{if} \PY{o+ow}{not} \PY{n}{reference} \PY{o}{==} \PY{k+kc}{None}\PY{p}{:}
+                \PY{n}{size} \PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{gzip\PYZus{}compress}\PY{p}{(}\PY{n+nb}{bytes}\PY{p}{(}\PY{n}{reference} \PY{o}{+} \PY{n}{genom}\PY{p}{,} \PY{n}{encoding}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{utf8}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n}{size}
+            \PY{k}{return} \PY{n}{size}
+        
+        \PY{n}{compressize} \PY{o}{=} \PY{p}{\PYZob{}}
+            \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{gen}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{gencompress\PYZus{}size}\PY{p}{,}
+            \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{gzip}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{n}{gzipcompress\PYZus{}size}
+        \PY{p}{\PYZcb{}}
+\end{Verbatim}
+
+
+    Then we define methods for computing size of compressed sequences with
+or without reference sequences using different algorithms
+(\textbf{GenCompress} and \textbf{gzip}). Beside the methods we define
+compressize switch variable for more transparent use.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{n}{compressize}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gen}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{(}\PY{n}{seq}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{A}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{seq}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{B}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}3}]:} 1377
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{n}{compressize}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gzip}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{(}\PY{n}{seq}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{A}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{seq}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{B}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}4}]:} 1354
+\end{Verbatim}
+            
+    Now we need to define distances. The distance will be computed using the
+formula from the assignment and expressed in percentage rounded to 0
+digits.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{k}{def} \PY{n+nf}{distance}\PY{p}{(}\PY{n}{genA}\PY{p}{,} \PY{n}{genB}\PY{p}{,} \PY{n}{compress} \PY{o}{=} \PY{n}{compressize}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gen}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{:}
+            \PY{k}{return} \PY{n+nb}{round}\PY{p}{(}\PY{p}{(}\PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{p}{(}\PY{n}{compress}\PY{p}{(}\PY{n}{genA}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n}{compress}\PY{p}{(}\PY{n}{genA}\PY{p}{,} \PY{n}{genB}\PY{p}{)}\PY{p}{)} \PY{o}{/} \PY{n}{compress}\PY{p}{(}\PY{n}{genA} \PY{o}{+} \PY{n}{genB}\PY{p}{)}\PY{p}{)} \PY{o}{*} \PY{l+m+mi}{100}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{n}{distance}\PY{p}{(}\PY{n}{seq}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{A}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{seq}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{B}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{compressize}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gen}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}6}]:} 95
+\end{Verbatim}
+            
+    Distance table computation:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{k+kn}{from} \PY{n+nn}{math} \PY{k}{import} \PY{n}{inf}
+        
+        \PY{k}{def} \PY{n+nf}{distance\PYZus{}table}\PY{p}{(}\PY{n}{sequencedict}\PY{p}{,} \PY{n}{compress} \PY{o}{=} \PY{n}{compressize}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gen}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{:}
+            \PY{n}{table} \PY{o}{=} \PY{p}{[}\PY{p}{[}\PY{n}{inf} \PY{k}{for} \PY{n}{x} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{sequencedict}\PY{p}{)}\PY{p}{)}\PY{p}{]} \PY{k}{for} \PY{n}{y} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{sequencedict}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+            \PY{n}{names} \PY{o}{=} \PY{p}{[}\PY{n}{key} \PY{k}{for} \PY{n}{key} \PY{o+ow}{in} \PY{n}{sequencedict}\PY{o}{.}\PY{n}{keys}\PY{p}{(}\PY{p}{)}\PY{p}{]}
+            \PY{k}{for} \PY{n}{A} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{names}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+                \PY{k}{for} \PY{n}{B} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{names}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+                    \PY{k}{if} \PY{n}{A} \PY{o}{\PYZlt{}} \PY{n}{B}\PY{p}{:}
+                        \PY{n}{table}\PY{p}{[}\PY{n}{A}\PY{p}{]}\PY{p}{[}\PY{n}{B}\PY{p}{]} \PY{o}{=} \PY{n}{distance}\PY{p}{(}\PY{n}{sequencedict}\PY{p}{[}\PY{n}{names}\PY{p}{[}\PY{n}{A}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{n}{sequencedict}\PY{p}{[}\PY{n}{names}\PY{p}{[}\PY{n}{B}\PY{p}{]}\PY{p}{]}\PY{p}{,} \PY{n}{compress}\PY{p}{)}
+                    \PY{k}{elif} \PY{n}{A} \PY{o}{==} \PY{n}{B}\PY{p}{:}
+                        \PY{n}{table}\PY{p}{[}\PY{n}{A}\PY{p}{]}\PY{p}{[}\PY{n}{B}\PY{p}{]} \PY{o}{=} \PY{l+m+mi}{0}
+                    \PY{k}{else}\PY{p}{:}
+                        \PY{n}{table}\PY{p}{[}\PY{n}{A}\PY{p}{]}\PY{p}{[}\PY{n}{B}\PY{p}{]} \PY{o}{=} \PY{n}{table}\PY{p}{[}\PY{n}{B}\PY{p}{]}\PY{p}{[}\PY{n}{A}\PY{p}{]}
+            
+            \PY{k}{return} \PY{n}{names}\PY{p}{,} \PY{n}{table}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{n}{distance\PYZus{}table}\PY{p}{(}\PY{n}{seq}\PY{p}{,} \PY{n}{compressize}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gzip}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}8}]:} (['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+         [[0, 83, 96, 81, 74, 81, 68, 62],
+          [83, 0, 90, 50, 62, 46, 72, 66],
+          [96, 90, 0, 60, 50, 58, 62, 57],
+          [81, 50, 60, 0, 67, 45, 75, 68],
+          [74, 62, 50, 67, 0, 80, 80, 74],
+          [81, 46, 58, 45, 80, 0, 75, 68],
+          [68, 72, 62, 75, 80, 75, 0, 79],
+          [62, 66, 57, 68, 74, 68, 79, 0]])
+\end{Verbatim}
+            
+    Compute both tables:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{n}{tables} \PY{o}{=} \PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+        \PY{k}{for} \PY{n}{compression} \PY{o+ow}{in} \PY{n}{compressize}\PY{p}{:}
+            \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Computing distance table using compression:}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{compression}\PY{p}{)}
+            \PY{n}{tables}\PY{p}{[}\PY{n}{compression}\PY{p}{]} \PY{o}{=} \PY{n}{distance\PYZus{}table}\PY{p}{(}\PY{n}{seq}\PY{p}{,} \PY{n}{compressize}\PY{p}{[}\PY{n}{compression}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Computing distance table using compression: gen
+Computing distance table using compression: gzip
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{k+kn}{from} \PY{n+nn}{pprint} \PY{k}{import} \PY{n}{pprint}
+         \PY{n}{pprint}\PY{p}{(}\PY{n}{tables}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+\{'gen': (['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+         [[0, 95, 96, 95, 95, 95, 96, 97],
+          [95, 0, 73, 50, 69, 49, 91, 93],
+          [96, 73, 0, 76, 72, 76, 93, 94],
+          [95, 50, 76, 0, 71, 44, 91, 92],
+          [95, 69, 72, 71, 0, 71, 90, 92],
+          [95, 49, 76, 44, 71, 0, 91, 93],
+          [96, 91, 93, 91, 90, 91, 0, 90],
+          [97, 93, 94, 92, 92, 93, 90, 0]]),
+ 'gzip': (['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+          [[0, 83, 96, 81, 74, 81, 68, 62],
+           [83, 0, 90, 50, 62, 46, 72, 66],
+           [96, 90, 0, 60, 50, 58, 62, 57],
+           [81, 50, 60, 0, 67, 45, 75, 68],
+           [74, 62, 50, 67, 0, 80, 80, 74],
+           [81, 46, 58, 45, 80, 0, 75, 68],
+           [68, 72, 62, 75, 80, 75, 0, 79],
+           [62, 66, 57, 68, 74, 68, 79, 0]])\}
+
+    \end{Verbatim}
+
+    From the tables we just generated we can see the probable affinity of
+species.
+
+For \textbf{gen}: 1. F and D (44) 2. B and F (49) 3. B and D (50)
+
+Thus, we can conclude that \emph{F}, \emph{D} and \emph{B} are very
+close to each other.
+
+For \textbf{gzip}: 1. F and D (45) 2. F and B (46) 3. B and D (50)
+
+Thus, we can see that \emph{F}, \emph{D} and \emph{B} are very close in
+this compression as well.
+
+From this we can conclude that in both polygenetic trees nodes
+representing these species will look similar to:
+
+\begin{verbatim}
+   /--B
+--|    /--F
+   \--|
+       \--D
+\end{verbatim}
+
+The result is not same in all cases though. For example the last row
+denoting the affinity of \emph{H} to other species differs a lot. For
+\textbf{gen} the compression denotes almost none affinity to any of the
+other species. For \textbf{gzip}, however, there is very high affinity
+to \emph{C} - 57 (for \textbf{gen} the affinity to \emph{C} was 94).
+
+From this we can conclude that the tree will differ for \emph{H} - for
+\textbf{gzip} tree there should be visible affinity to \emph{C} and for
+\textbf{gen} the \emph{H} node should be somewhere at the top layers of
+the tree, with high distances to other nodes (closest should be \emph{G}
+with distance 90).
+
+As of which algorithm is more suitable for polygenetic tree creation, I
+would say that \textbf{GenCompress} suits better the need. Our aim is
+not to compress genomes as much as possible but to find similarities in
+genoms. With \textbf{GenCompress} we actually try to compress one genom
+using the other. With \textbf{gzip} we just concatenate both sequences
+and hope that it will use the first for referencing the other. But that
+does not have to be the case and the compression algorithm may have used
+some other method to obtain the best result and therefore we cannot
+\emph{trust} the \textbf{gzip} result as much as the
+\textbf{GenCompress} result.
+
+    Now we need to create the phylogenetic tree. We will use \texttt{ete3}
+library designed for phylogenetic tree representation. For more
+information about the library see
+\href{http://etetoolkit.org/ipython_notebook/}{ete3}.
+
+Before we can create the tree, we need to cluster the data using the
+distance matrix. For this purpose I use
+\href{https://pypi.org/project/dedupe-hcluster/}{dedupe-hcluster}
+module.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}22}]:} \PY{k+kn}{import} \PY{n+nn}{sys}
+         \PY{o}{!}\PY{o}{\PYZob{}}sys.executable\PY{o}{\PYZcb{}} \PYZhy{}m pip install dedupe\PYZhy{}hcluster
+         \PY{o}{!}\PY{o}{\PYZob{}}sys.executable\PY{o}{\PYZcb{}} \PYZhy{}m pip install ete3
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Requirement already satisfied: dedupe-hcluster in c:\textbackslash{}users\textbackslash{}jakub\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages (0.3.6)
+Requirement already satisfied: numpy>=1.12.1; python\_version == "3.6" in c:\textbackslash{}users\textbackslash{}jakub\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages (from dedupe-hcluster) (1.14.3)
+Requirement already satisfied: future in c:\textbackslash{}users\textbackslash{}jakub\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages (from dedupe-hcluster) (0.17.1)
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+You are using pip version 18.0, however version 18.1 is available.
+You should consider upgrading via the 'python -m pip install --upgrade pip' command.
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Requirement already satisfied: ete3 in c:\textbackslash{}users\textbackslash{}jakub\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages (3.1.1)
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+You are using pip version 18.0, however version 18.1 is available.
+You should consider upgrading via the 'python -m pip install --upgrade pip' command.
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}35}]:} \PY{k+kn}{from} \PY{n+nn}{hcluster} \PY{k}{import} \PY{n}{linkage}\PY{p}{,} \PY{n}{to\PYZus{}tree}
+         \PY{k+kn}{from} \PY{n+nn}{ete3} \PY{k}{import} \PY{n}{Tree}
+         
+         \PY{k}{def} \PY{n+nf}{build\PYZus{}tree}\PY{p}{(}\PY{n}{table}\PY{p}{)}\PY{p}{:}
+             \PY{c+c1}{\PYZsh{}hcluster part}
+             \PY{n}{l} \PY{o}{=} \PY{n}{linkage}\PY{p}{(}\PY{n}{table}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{single}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PY{c+c1}{\PYZsh{} link the data}
+             \PY{n}{T} \PY{o}{=} \PY{n}{to\PYZus{}tree}\PY{p}{(}\PY{n}{l}\PY{p}{)} \PY{c+c1}{\PYZsh{} create a tree}
+         
+             \PY{c+c1}{\PYZsh{}ete2 section}
+             \PY{n}{root} \PY{o}{=} \PY{n}{Tree}\PY{p}{(}\PY{p}{)}
+             \PY{n}{root}\PY{o}{.}\PY{n}{dist} \PY{o}{=} \PY{l+m+mi}{0}
+             \PY{n}{root}\PY{o}{.}\PY{n}{name} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{root}\PY{l+s+s2}{\PYZdq{}}
+             \PY{n}{item2node} \PY{o}{=} \PY{p}{\PYZob{}}\PY{n}{T}\PY{p}{:} \PY{n}{root}\PY{p}{\PYZcb{}}
+             \PY{n}{names} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ABCDEFGH}\PY{l+s+s2}{\PYZdq{}}
+         
+             \PY{n}{to\PYZus{}visit} \PY{o}{=} \PY{p}{[}\PY{n}{T}\PY{p}{]}
+             \PY{k}{while} \PY{n}{to\PYZus{}visit}\PY{p}{:} \PY{c+c1}{\PYZsh{} While there are items to visit}
+                 \PY{n}{node} \PY{o}{=} \PY{n}{to\PYZus{}visit}\PY{o}{.}\PY{n}{pop}\PY{p}{(}\PY{p}{)} \PY{c+c1}{\PYZsh{} take the first}
+                 \PY{n}{cl\PYZus{}dist} \PY{o}{=} \PY{n}{node}\PY{o}{.}\PY{n}{dist} \PY{o}{/} \PY{l+m+mf}{2.0} \PY{c+c1}{\PYZsh{} take the cluster distance}
+                 \PY{k}{for} \PY{n}{ch\PYZus{}node} \PY{o+ow}{in} \PY{p}{[}\PY{n}{node}\PY{o}{.}\PY{n}{left}\PY{p}{,} \PY{n}{node}\PY{o}{.}\PY{n}{right}\PY{p}{]}\PY{p}{:} \PY{c+c1}{\PYZsh{} fill in the binary sons}
+                     \PY{k}{if} \PY{n}{ch\PYZus{}node}\PY{p}{:}
+                         \PY{n}{ch} \PY{o}{=} \PY{n}{Tree}\PY{p}{(}\PY{p}{)} \PY{c+c1}{\PYZsh{} create a tree}
+                         \PY{n}{ch}\PY{o}{.}\PY{n}{dist} \PY{o}{=} \PY{n}{cl\PYZus{}dist} \PY{c+c1}{\PYZsh{} set its distance}
+                         \PY{n}{ch}\PY{o}{.}\PY{n}{name} \PY{o}{=} \PY{n}{names}\PY{p}{[}\PY{n}{ch\PYZus{}node}\PY{o}{.}\PY{n}{id}\PY{p}{]} \PY{k}{if} \PY{n}{ch\PYZus{}node}\PY{o}{.}\PY{n}{id} \PY{o}{\PYZlt{}} \PY{n+nb}{len}\PY{p}{(}\PY{n}{names}\PY{p}{)} \PY{k}{else} \PY{n+nb}{str}\PY{p}{(}\PY{n}{ch\PYZus{}node}\PY{o}{.}\PY{n}{id}\PY{p}{)} \PY{c+c1}{\PYZsh{} and name}
+                         \PY{n}{item2node}\PY{p}{[}\PY{n}{node}\PY{p}{]}\PY{o}{.}\PY{n}{add\PYZus{}child}\PY{p}{(}\PY{n}{ch}\PY{p}{)} \PY{c+c1}{\PYZsh{} Add it as a child of parent node}
+                         \PY{n}{item2node}\PY{p}{[}\PY{n}{ch\PYZus{}node}\PY{p}{]} \PY{o}{=} \PY{n}{ch} \PY{c+c1}{\PYZsh{} Set it as a node}
+                         \PY{n}{to\PYZus{}visit}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{ch\PYZus{}node}\PY{p}{)} \PY{c+c1}{\PYZsh{} Visit it}
+         
+             \PY{c+c1}{\PYZsh{} This is your ETE tree structure}
+             \PY{k}{return} \PY{n}{root}
+\end{Verbatim}
+
+
+    Finally we can build the tree and render it using render function of
+ete3 tree node.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}58}]:} \PY{n}{tree} \PY{o}{=} \PY{n}{build\PYZus{}tree}\PY{p}{(}\PY{n}{tables}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gzip}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+         \PY{n}{\PYZus{}} \PY{o}{=} \PY{n}{tree}\PY{o}{.}\PY{n}{render}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{tree1.png}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{w}\PY{o}{=}\PY{l+m+mi}{1000}\PY{p}{,} \PY{n}{units}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{px}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \subsection{Phylogenetic tree \#1 -
+gzip}\label{phylogenetic-tree-1---gzip}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}59}]:} \PY{n}{tree} \PY{o}{=} \PY{n}{build\PYZus{}tree}\PY{p}{(}\PY{n}{tables}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gen}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+         \PY{n}{\PYZus{}} \PY{o}{=} \PY{n}{tree}\PY{o}{.}\PY{n}{render}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{tree2.png}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{w}\PY{o}{=}\PY{l+m+mi}{1000}\PY{p}{,} \PY{n}{units}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{px}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \subsection{Phylogenetic tree \#2 -
+GenCompress}\label{phylogenetic-tree-2---gencompress}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
