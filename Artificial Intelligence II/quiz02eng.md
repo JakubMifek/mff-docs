@@ -45,19 +45,36 @@ ___
   - the structure of computation can be described using a tree structure
 
 ### What is the relation between inference by enumeration and variable elimination methods?
+  - Enumeration repeats the same parts of the computation -> we can remember the result and reuse it later
+  - `P(b | j,m) = \alpha \sum_e \sum_a P(b) P(e) P(a | b,e) P(j | a) P(m | a) = \alpha f_1(b) \sum_e f_2(e) \sum_a f_3(a,b,e) f_4(a) f_5(a)`
 
 ### How does variable ordering influence the variable elimination method (from the soundness and efficiency views)?
 
 ### How do we get the factors from the Bayesian network? Demonstrate the basic operations with factors.
 
 ### Sketch the core idea of the Monte Carlo method. What is a sample?
+  - approximate inference methods (to avoind NP-hardness)
+  - generate many samples
+  - use statistics to estimate the quantity
+  - more samples = more accuracy
+  - sample is a random assignment of all random variables
 
 ### What is a direct sampling method? Why cannot it be used directly to do any inference?
+  - nodes (varibales) are taken in topological order
+  - the probability distribution is conditioned on the values already assigned to parents
+  - generate a sample value based on this distribution
 
 ### What is rejection sampling? What is its major disadvantage?
+  - 
+  - ***rejecting too many samples***
 
 ### What is the weight in likelihood weighting? How is the weight used? What is the major disadvantage of likelihood weighting?
+  - 
+  - ***We work with small numbers***
 
 ### What is the major difference between the Markov Chain Monte Carlo method and rejection sampling and likelihood weighting?
+  - instead of generating new samples, we modify already known sample
+  - modification is done using probabilities from Markov blanket
 
 ### Justify that MCMC works.
+  - 
