@@ -23,6 +23,7 @@ Ousourcing of computer services in software domain.
 ### Weaknesses
  - Unexperienced leadership
  - Narrow specialization
+ - Strangeness to the market
  
 ### Opportunities
  - Situation at market (open positions)
@@ -43,6 +44,7 @@ Ousourcing of computer services in software domain.
   <th>Customers</th>
   <th>Shareholders</th>
   <th>Employees</th>
+  <th>Initiatives</th>
  </tr>
  <tr>
   <th></th>
@@ -102,11 +104,17 @@ Ousourcing of computer services in software domain.
       <li>Clima</li>
     </ul>
     </strong>
-  </td>
+   </td>
    <td><b><i>4</i></b></td>
-   <td><i>2</i></td>
-   <td><i>1</i></td>
+   <td><b>2</b></td>
+   <td><b>1</b></td>
    <td><b><i>3</i></b></td>
+   <td>
+    <ul>
+     <li>Lobbyism</li>
+     <li>Team bulding</li>
+    </ul>
+   </td>
  </tr>
  <tr>
    <th>Consultation services</th>
@@ -119,10 +127,16 @@ Ousourcing of computer services in software domain.
     </ul>
     </strong>
   </td>
-   <td>4</td>
-   <td>3</td>
-   <td>1</td>
-   <td>2</td>
+   <td><b><i>4</i></b></td>
+   <td><b><i>3</i></b></td>
+   <td><b>1</b></td>
+   <td><b>2</b></td>
+   <td>
+    <ul>
+     <li>Education</li>
+     <li>Training</li>
+    </ul>
+   </td>
  </tr>
  <tr>
    <th>Marketing</th>
@@ -134,11 +148,16 @@ Ousourcing of computer services in software domain.
       <li>Incidents</li>
     </ul>
     </strong>
-  </td>
-   <td>3</td>
-   <td>4</td>
-   <td>2</td>
+   </td>
+   <td><b><i>3</i></b></td>
+   <td><b><i>4</i></b></td>
+   <td><b>2</b></td>
    <td>1</td>
+   <td>
+    <ul>
+     <li>Market research, finding new opportunities</li>
+    </ul>
+   </td>
  </tr>
  <tr>
    <th>Management</th>
@@ -151,10 +170,16 @@ Ousourcing of computer services in software domain.
     </ul>
     </strong>
   </td>
-   <td>3</td>
-   <td>1</td>
-   <td>4</td>
-   <td>2</td>
+  <td><b>3</b></td>
+  <td>1</td>
+  <td><b><i>4</i></b></td>
+  <td>2</td>
+  <td>
+   <ul>
+    <li>Training</li>
+    <li>Investment into growth</li>
+   </ul>
+  </td>
  </tr>
  <tr>
    <th>Resources</th>
@@ -169,8 +194,27 @@ Ousourcing of computer services in software domain.
     </strong>
   </td>
    <td>2</td>
-   <td>3</td>
    <td>1</td>
-   <td>4</td>
+   <td><b>3</b></td>
+   <td><b><i>4</i></b></td>
+   <td>
+    <ul>
+     <li>Recruit more ppl from the field</li>
+     <li>Motivation system</li>
+     <li>Company presentation</li>
+    </ul>
+   </td>
  </tr>
 </table>
+
+### Open topics
+ - underinvestment
+ - limits of known field
+ - understaff
+ - competition and differentation
+ - dependence on contracts with other companies
+
+### Hypothesis
+ - lobbyism & marketing investment
+ - our own product
+ - subcontractors
