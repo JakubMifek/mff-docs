@@ -47,3 +47,6 @@ Opportunities:
  |**Net Increase (decrease) in Cash**| 	 **2 602** |
  |**Opening Cash Balance**| 	 **-** |
  |**Closing Cash Balance**| 	 **2 602** |
+
+Investment: 200,000 CZK
+Return point: 3 months
