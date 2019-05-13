@@ -1,0 +1,180 @@
+{UTF-8}
+Airplane costs=
+	Airplanes Acquisition per month*Cost of an airplane
+	~	$
+	~		|
+
+Airplanes= INTEG (
+	Airplanes Acquisition per month,
+		3)
+	~	airplanes
+	~		|
+
+Airplanes Acquisition per month=
+	0.25
+	~	airplanes [0,10,0.1]
+	~		|
+
+Concurence price of ticket=
+	150
+	~	$
+	~		|
+
+Cost of an airplane=
+	10000
+	~	$/airplane
+	~		|
+
+Costs=
+	Airplane costs + Marketing per month + 100 * Airplanes + 700 * Staff
+	~	$
+	~		|
+
+Customers per month=
+	MAX(0, Market demand * Market disposition)
+	~	tickets [0,?]
+	~		|
+
+Hiring=
+	20
+	~	people/month
+	~		|
+
+Income=
+	Customers per month * Price per ticket
+	~	$
+	~		|
+
+Market demand=
+	MAX(0,MIN(1, 
+	2/(1 + EXP( -(1/(1-(Quality of service)^2+1e-06)) * Marketing per month/1000 ) ) - 1\
+		 +
+	2/EXP(Price per ticket/Concurence price of ticket) - 1
+	))
+	~	percent [0,1]
+	~		|
+
+Market disposition=
+	SQRT(Time) * 1000
+	~	people [0,?]
+	~		|
+
+Marketing per month=
+	1000
+	~	$ [1,?]
+	~		|
+
+Price per ticket=
+	170
+	~	$/ticket
+	~		|
+
+Quality of service=
+	MIN(1, Staff / (80 * Airplanes))
+	~	percent [0,1,0.1]
+	~		|
+
+Revenue= INTEG (
+	Income-Costs,
+		30000)
+	~	$
+	~		|
+
+Staff= INTEG (
+	Hiring,
+		180)
+	~	people [0,?]
+	~		|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 40
+	~	Quarter
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = 0
+	~	Quarter
+	~	The initial time for the simulation.
+	|
+
+SAVEPER  = 
+        TIME STEP
+	~	Quarter [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 1
+	~	Quarter [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 1
+$192-192-192,0,Times New Roman|12||0-0-0|0-0-0|0-0-255|-1--1--1|-1--1--1|96,96,100,0
+10,1,Airplanes Acquisition per month,1207,214,70,19,8,131,0,0,0,0,0,0
+10,21,Revenue,703,36,40,20,3,3,0,0,0,0,0,0
+10,34,Costs,757,194,20,11,8,3,0,0,0,0,0,0
+1,35,34,21,1,0,0,0,0,64,0,-1--1--1,,1|(804,112)|
+10,37,Income,661,195,25,11,8,3,0,0,0,0,0,0
+1,38,37,21,1,0,0,0,0,64,0,-1--1--1,,1|(589,111)|
+10,39,Cost of an airplane,988,84,59,11,8,3,0,0,0,0,0,0
+10,40,Airplane costs,924,189,45,11,8,3,0,0,0,0,0,0
+1,41,39,40,1,0,0,0,0,64,0,-1--1--1,,1|(903,127)|
+1,42,1,40,1,0,0,0,0,64,0,-1--1--1,,1|(1058,138)|
+1,43,40,34,1,0,0,0,0,64,0,-1--1--1,,1|(833,222)|
+10,44,Quality of service,392,107,55,11,8,3,0,0,0,0,0,0
+10,45,Marketing per month,123,190,46,19,8,3,0,0,0,0,0,0
+10,46,Market demand,296,194,51,11,8,3,0,0,0,0,0,0
+1,47,45,46,1,0,0,0,0,64,0,-1--1--1,,1|(193,132)|
+1,48,44,46,1,0,0,0,0,64,0,-1--1--1,,1|(313,126)|
+1,49,45,34,1,0,0,0,0,64,0,-1--1--1,,1|(415,50)|
+10,51,Time,36,94,26,11,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|0||128-128-128
+10,53,Market disposition,237,348,59,11,8,3,0,0,0,0,0,0
+1,54,51,53,1,0,0,0,0,64,0,-1--1--1,,1|(30,267)|
+10,55,Customers per month,445,355,47,19,8,3,0,0,0,0,0,0
+1,56,46,55,1,0,0,0,0,64,0,-1--1--1,,1|(338,282)|
+1,57,53,55,1,0,0,0,0,64,0,-1--1--1,,1|(344,370)|
+10,58,Price per ticket,423,448,48,11,8,3,0,0,0,0,0,0
+1,59,55,37,1,0,0,0,0,64,0,-1--1--1,,1|(533,252)|
+1,60,58,37,1,0,0,0,0,64,0,-1--1--1,,1|(563,355)|
+10,61,Staff,469,192,40,20,3,3,0,0,0,0,0,0
+10,62,Hiring,422,14,20,11,8,3,0,0,0,0,0,0
+1,63,62,61,1,0,0,0,0,64,0,-1--1--1,,1|(514,90)|
+1,64,61,44,1,0,0,0,0,64,0,-1--1--1,,1|(395,170)|
+1,65,61,34,1,0,0,0,0,64,0,-1--1--1,,1|(615,311)|
+10,66,Airplanes,912,298,40,20,3,3,0,0,0,0,0,0
+1,67,1,66,0,0,0,0,0,64,0,-1--1--1,,1|(1053,257)|
+1,68,66,44,1,0,0,0,0,64,0,-1--1--1,,1|(532,355)|
+1,69,66,34,1,0,0,0,0,64,0,-1--1--1,,1|(805,270)|
+1,70,58,46,1,0,0,0,0,64,0,-1--1--1,,1|(132,386)|
+10,71,Concurence price of ticket,73,532,57,19,8,3,0,0,0,0,0,0
+1,72,71,46,1,0,0,0,0,64,0,-1--1--1,,1|(77,309)|
+///---\\\
+:L<%^E!@
+1:Base.vdf
+1:Current.vdf
+9:Base
+23:0
+15:0,0,0,0,0,0
+19:100,0
+27:0,
+34:0,
+4:Time
+5:Price per ticket
+35:Date
+36:YYYY-MM-DD
+37:2000
+38:1
+39:1
+40:1
+41:0
+42:1
+24:0
+25:40
+26:40
