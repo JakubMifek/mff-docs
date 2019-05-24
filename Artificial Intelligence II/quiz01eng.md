@@ -77,7 +77,9 @@ If probabilities of all random variables are independent, we can write:
 It is called naïve Bayes model since it is often used even when the probabilities are not indepenedent.
 
 #### How is the Bayes’ rule exploited when representing the full joint probability distribution?
-***???***
+If all the effects are conditionally independent given the cause variable, we get:
+
+*P(Cause, Effect_1, ..., Effect_n)  = P(Cause) * \Pi_i P(Effect_i | Cause)*
 
 #### What is the difference between causal and diagnostic direction?
 Causal dirrection is the probability of effect if we know the cause.  
